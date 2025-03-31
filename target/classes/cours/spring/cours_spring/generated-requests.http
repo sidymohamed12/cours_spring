@@ -1,0 +1,87 @@
+##################################### LIST ALL #############################################
+GET http://localhost:8080/article
+
+################################
+GET http://localhost:8080/client?page=1
+
+################################
+GET http://localhost:8080/commande
+
+################################
+GET http://localhost:8080/article/catalogue
+
+################################
+GET http://localhost:8080/categorie?page=2
+
+##################################### LIST ONE #############################################
+GET http://localhost:8080/article/5
+
+################################
+GET http://localhost:8080/categorie/2
+
+################################
+GET http://localhost:8080/categorie/5/articles
+
+################################
+GET http://localhost:8080/client/5
+
+################################
+GET http://localhost:8080/client/6/commandes
+
+################################
+GET http://localhost:8080/commande/21
+
+##################################### CREATE #############################################
+
+POST http://localhost:8080/article
+Accept: application/json
+Content-Type: application/json
+
+{
+    "libelle" : "sucre",
+    "code" : "codeArt_64",
+    "qteStock" : 27,
+    "prix" : 100.0,
+    "categoryId" : 4
+}
+
+#################
+
+POST http://localhost:8080/categorie
+Accept: application/json
+Content-Type: application/json
+
+{
+    "code" : "code1234",
+    "name" : "coco"
+}
+
+#################
+
+POST http://localhost:8080/commande
+Accept: application/json
+Content-Type: application/json
+
+{
+    "montant" : 12000.0,
+    "clientId" : 2
+}
+
+#################
+
+POST http://localhost:8080/client
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name" : "Bathiezar",
+    "telephone" : "775027892",
+    "commandes": [
+        {
+            "montant": 100.50
+        },
+        {
+            "montant": 200.75
+        }
+    ]
+}

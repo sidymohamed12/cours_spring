@@ -1,0 +1,54 @@
+<p>client works!</p>
+<h2 class="text-red-600 font-bold text-3xl text-center">Liste des clients</h2>
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Nom Complet
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Telephone
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of items"
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ client.name }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ client.telephone }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ client.id }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination -->
+<div class="flex justify-center gap-2 mt-4">
+    <!-- Bouton Précédent -->
+    <button (click)="previousPage()" [disabled]="currentPage === 0"
+        class="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300">
+        Précédent
+    </button>
+
+    <!-- Boutons de pagination -->
+    <!-- <button *ngFor="let page of getPages()" (click)="goToPage(page)" [class.bg-blue-500]="currentPage === page"
+        class="px-4 py-2 bg-gray-300 text-white rounded">
+        {{ page + 1 }}
+    </button> -->
+
+    <!-- Bouton Suivant -->
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1"
+        class="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300">
+        Suivant
+    </button>
+</div>

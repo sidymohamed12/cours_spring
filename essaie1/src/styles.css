@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "flowbite";
+@theme {
+  --color-primary: #1d4ed8;
+  --font-sans: "Inter", sans-serif;
+  --spacing-4: 1rem;
+}

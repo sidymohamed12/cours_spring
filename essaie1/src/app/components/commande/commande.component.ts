@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Pagination } from '../pagination';
 import { firstValueFrom } from 'rxjs';
-import { CommandeService } from '../../shared/service/commande/commande.service';
+import { CommandeService } from '../../shared/service/implement/commande.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

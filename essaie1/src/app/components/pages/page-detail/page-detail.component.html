@@ -64,7 +64,10 @@
                         ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
                         sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
                     </p>
-                    <input type="number" name="" id="" (input)="onValidateQte()">
+                    <input type="text" name="" id="" #qteCom (keyup)="onValidateQte(qteCom.value)"
+                        class="mt-4 w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold"
+                        placeholder="Enter quantity" />
+                    <p class="text-red-600">{{errorMessage}}</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ArticleService } from '../../shared/service/article/article.service';
+import { ArticleService } from '../../shared/service/implement/article.service';
 import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pagination } from '../pagination';

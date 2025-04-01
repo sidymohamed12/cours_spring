@@ -23,6 +23,7 @@ export class PageCatalogueComponent implements OnInit {
         console.log(this.produits);
       });
   }
+
   // constructor(route: ActivatedRoute, router: Router) {
   //   super(route, router);
   // }

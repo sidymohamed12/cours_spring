@@ -4,6 +4,7 @@ export interface ProduitCatalogue {
   prix: number;
   newPrix: number;
   qteStock: number;
+  qteCom?: number;
   note: number;
   image: string;
   isdispo: boolean;
@@ -16,6 +17,7 @@ export interface ProduitDetail {
   prix: number;
   newPrix: number;
   qteStock: number;
+  qteCom?: number;
   note: number;
   image: string;
   isdispo: boolean;
@@ -23,4 +25,10 @@ export interface ProduitDetail {
   produitCategory: ProduitCatalogue[];
 
   // category: Category;
+}
+
+export interface Panier {
+  produits: ProduitCatalogue[];
+  date: Date;
+  total: number;
 }

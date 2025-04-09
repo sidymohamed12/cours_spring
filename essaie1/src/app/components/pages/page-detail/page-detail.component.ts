@@ -46,7 +46,7 @@ export class PageDetailComponent implements OnInit {
     }
 
     this.produitDetail.qteCom = this.quantity;
-    this.panierService.addProduit(this.produitDetail);
+    this.panierService.addProduit2(this.produitDetail);
     console.log(this.panierService.panierFinal().produits);
   }
 

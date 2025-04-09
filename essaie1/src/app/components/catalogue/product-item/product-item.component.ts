@@ -22,7 +22,7 @@ export class ProductItemComponent {
 
   onAddToPanier() {
     this.produit.qteCom = 1;
-    this.panierService.addProduit(this.produit);
+    this.panierService.addProduit2(this.produit);
     console.log(this.panierService.panierFinal().produits);
   }
 }

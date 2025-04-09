@@ -1,10 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CatalogueService } from '../../../shared/service/implement/catalogue.service';
-import {
-  ProduitCatalogue,
-  ProduitDetail,
-} from '../../../shared/model/Catalogue';
+import { ProduitDetail } from '../../../shared/model/Catalogue';
 import { ProductItemComponent } from '../../catalogue/product-item/product-item.component';
 import { PanierService } from '../../../shared/service/implement/panier.service';
 import { NgFor } from '@angular/common';

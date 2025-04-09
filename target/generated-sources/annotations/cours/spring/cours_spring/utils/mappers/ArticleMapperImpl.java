@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-03-31T11:07:35+0000",
-    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.42.0.v20250325-2231, environment: Java 21.0.6 (Eclipse Adoptium)"
+    date = "2025-04-02T13:59:58+0000",
+    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.42.0.z20250331-1358, environment: Java 21.0.6 (Eclipse Adoptium)"
 )
 @Component
 public class ArticleMapperImpl implements ArticleMapper {
@@ -27,9 +27,14 @@ public class ArticleMapperImpl implements ArticleMapper {
         Article article = new Article();
 
         article.setCategorie( articleCreateRequestToCategorie( request ) );
+        article.setDescription( request.getDescription() );
         article.setImage( request.getImage() );
+        article.setIsdispo( request.getIsdispo() );
         article.setLibelle( request.getLibelle() );
+        article.setNewPrix( request.getNewPrix() );
+        article.setNote( request.getNote() );
         article.setPrix( request.getPrix() );
+        article.setPromo( request.getPromo() );
         article.setQteStock( request.getQteStock() );
 
         return article;
@@ -45,6 +50,7 @@ public class ArticleMapperImpl implements ArticleMapper {
 
         articleOneResponse.setCategory( categorieToCategorySimpleResponse( article.getCategorie() ) );
         articleOneResponse.setCode( article.getCode() );
+        articleOneResponse.setDescription( article.getDescription() );
         articleOneResponse.setId( article.getId() );
         articleOneResponse.setImage( article.getImage() );
         articleOneResponse.setIsdispo( article.getIsdispo() );
@@ -68,6 +74,7 @@ public class ArticleMapperImpl implements ArticleMapper {
 
         articleAllResponse.setCategory( articleCategorieName( article ) );
         articleAllResponse.setCode( article.getCode() );
+        articleAllResponse.setDescription( article.getDescription() );
         articleAllResponse.setId( article.getId() );
         articleAllResponse.setLibelle( article.getLibelle() );
         articleAllResponse.setPrix( article.getPrix() );
@@ -84,6 +91,7 @@ public class ArticleMapperImpl implements ArticleMapper {
 
         ProduitCatalogue produitCatalogue = new ProduitCatalogue();
 
+        produitCatalogue.setDescription( article.getDescription() );
         produitCatalogue.setId( article.getId() );
         produitCatalogue.setImage( article.getImage() );
         produitCatalogue.setIsdispo( article.getIsdispo() );

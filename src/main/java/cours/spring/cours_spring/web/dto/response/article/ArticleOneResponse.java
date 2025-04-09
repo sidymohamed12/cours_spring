@@ -22,6 +22,7 @@ public class ArticleOneResponse {
     private String image;
     private Boolean isdispo;
     private Boolean promo;
+    private String description;
     private CategorySimpleResponse category;
     private List<ProduitCatalogue> produitCategory;
 

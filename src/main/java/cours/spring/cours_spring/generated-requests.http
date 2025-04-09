@@ -20,7 +20,7 @@ GET http://localhost:8080/article/5
 GET http://localhost:8080/categorie/2
 
 ################################
-GET http://localhost:8080/categorie/5/articles
+GET http://localhost:8080/categorie/3/articles
 
 ################################
 GET http://localhost:8080/client/5
@@ -37,13 +37,18 @@ POST http://localhost:8080/article
 Accept: application/json
 Content-Type: application/json
 
-{
-    "libelle" : "sucre",
-    "code" : "codeArt_64",
-    "qteStock" : 27,
-    "prix" : 100.0,
-    "categoryId" : 4
-}
+  {
+    "libelle": "Haricot (Niébé)",
+    "qteStock": 150,
+    "prix": 1300.0,
+    "categoryId": 3,
+    "newPrix": 1200,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Le haricot niébé, aussi appelé pois à œil noir, est un ingrédient clé de la cuisine sénégalaise. Cultivé biologiquement à Thiès, il est une source essentielle de protéines végétales, idéal pour les végétariens et les amateurs de cuisine saine. Riche en fibres et en fer, il favorise une bonne digestion et renforce l’organisme. Il se déguste en sauce, en ragoût ou en accompagnement des plats de céréales."
+  }
 
 #################
 
@@ -52,8 +57,16 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "code" : "code1234",
-    "name" : "coco"
+    "code" : "FRT_221",
+    "name" : "Fruits"
+},
+{
+    "code" : "LGM_221",
+    "name" : "Legumes"
+},
+{
+    "code" : "CRL_221",
+    "name" : "Cereales"
 }
 
 #################

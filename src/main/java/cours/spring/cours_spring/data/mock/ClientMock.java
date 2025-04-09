@@ -11,8 +11,8 @@ import cours.spring.cours_spring.data.entities.Client;
 import cours.spring.cours_spring.data.repository.IClientRepository;
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(1)
+// @Component
+// @Order(1)
 @RequiredArgsConstructor
 public class ClientMock implements CommandLineRunner {
 

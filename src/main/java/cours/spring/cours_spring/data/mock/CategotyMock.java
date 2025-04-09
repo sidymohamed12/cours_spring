@@ -11,8 +11,8 @@ import cours.spring.cours_spring.data.entities.Categorie;
 import cours.spring.cours_spring.data.repository.ICategoryRepository;
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(2)
+// @Component
+// @Order(2)
 @RequiredArgsConstructor
 public class CategotyMock implements CommandLineRunner {
 

@@ -16,11 +16,9 @@ public class ArticleCreateRequest {
     private String libelle;
 
     @Schema(description = "la quantité est obligatoire")
-    @NotBlank(message = "la quantité est obligatoire !")
     private Integer qteStock;
 
     @Schema(description = "le prix est obligatoire")
-    @NotBlank(message = "le prix est obligatoire !")
     private Double prix;
 
     @Schema(description = "l'id de la categorie est obligatoire")
@@ -28,5 +26,9 @@ public class ArticleCreateRequest {
     private Integer categoryId;
 
     private String image;
-
+    private Double newPrix;
+    private Integer note;
+    private Boolean isdispo;
+    private Boolean promo;
+    private String description;
 }

@@ -14,8 +14,8 @@ import cours.spring.cours_spring.data.repository.IArticleRepository;
 import cours.spring.cours_spring.data.repository.ICategoryRepository;
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(3)
+// @Component
+// @Order(3)
 @RequiredArgsConstructor
 public class ArticleMock implements CommandLineRunner {
 
@@ -35,7 +35,6 @@ public class ArticleMock implements CommandLineRunner {
                 article.setLibelle(categorie.getId() + "_article_" + i);
                 article.setPrix(10000.0 * i);
                 article.setImage("https://picsum.photos/200/300?random=" + i);
-                article.setIsdispo(true);
                 article.setPromo(false);
                 article.setNewPrix(0.0);
 

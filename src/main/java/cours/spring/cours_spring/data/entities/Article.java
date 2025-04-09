@@ -22,12 +22,14 @@ public class Article {
     private Integer id;
     @Column(nullable = false, unique = true)
     private String libelle;
-    @Column(nullable = false, unique = true)
     private String code;
     @Column(nullable = false)
     private Integer qteStock;
     @Column(nullable = false)
     private Double prix;
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String description;
     // @Column(nullable = false)
     private String image;
 

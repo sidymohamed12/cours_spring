@@ -9,6 +9,7 @@ export interface ProduitCatalogue {
   image: string;
   isdispo: boolean;
   promo: boolean;
+  description: string;
 }
 
 export interface ProduitDetail {
@@ -22,6 +23,7 @@ export interface ProduitDetail {
   image: string;
   isdispo: boolean;
   promo: boolean;
+  description: string;
   produitCategory: ProduitCatalogue[];
 
   // category: Category;

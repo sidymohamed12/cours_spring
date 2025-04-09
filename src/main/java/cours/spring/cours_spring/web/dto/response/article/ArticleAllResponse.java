@@ -15,5 +15,6 @@ public class ArticleAllResponse {
     private Integer qteStock;
     private Double prix;
     private String category;
+    private String description;
 
 }

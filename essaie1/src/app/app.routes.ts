@@ -6,6 +6,7 @@ import { CommandeComponent } from './components/commande/commande.component';
 import { PageCatalogueComponent } from './components/pages/page-catalogue/page-catalogue.component';
 import { PageDetailComponent } from './components/pages/page-detail/page-detail.component';
 import { PageNofoundComponent } from './components/pages/page-nofound/page-nofound.component';
+import { PagePanierComponent } from './components/pages/page-panier/page-panier.component';
 
 export const routes: Routes = [
   { path: 'article', component: ArticleComponent },
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'client', component: ClientComponent },
   { path: 'commande', component: CommandeComponent },
   { path: 'catalogue', component: PageCatalogueComponent },
+  { path: 'panier', component: PagePanierComponent },
   { path: 'detail/:produit_id', component: PageDetailComponent },
   { path: '', redirectTo: '/catalogue', pathMatch: 'full' },
   { path: '**', component: PageNofoundComponent },

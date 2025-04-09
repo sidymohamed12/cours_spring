@@ -1,0 +1,42 @@
+<tr class="text-center border-b">
+    <td class="py-4">
+        <div class="flex items-center">
+            <img class="h-16 w-16 mr-4" src="https://via.placeholder.com/150" alt="Product image">
+            <span class="font-semibold">Product name</span>
+        </div>
+    </td>
+    <td class="py-4">$19.99</td>
+    <td class="py-4">
+        <!-- qte -->
+        <div class="flex items-center">
+            <div class="mt-3 mx-auto">
+                <div class="relative flex items-center max-w-[8rem]">
+                    <!-- decrement -->
+                    <button type="button" (click)="decrement()" [disabled]="quantity() <= minValue"
+                        class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 ">
+                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h16" />
+                        </svg>
+                    </button>
+                    <input type="text" [value]="quantity()" (change)="onQuantityChange($event)" [min]="minValue"
+                        [max]="maxValue"
+                        class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required />
+                    <!-- increment -->
+                    <button type="button" (click)="increment()" [disabled]="quantity() >= maxValue"
+                        class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 ">
+                        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </td>
+    <td class="py-4">$19.99</td>
+</tr>

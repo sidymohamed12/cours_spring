@@ -1,0 +1,232 @@
+[
+  {
+    "libelle": "Mangue",
+    "qteStock": 200,
+    "prix": 1100.0,
+    "categoryId": 1,
+    "newPrix": 1000,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Nos mangues biologiques de Casamance sont cultivées avec soin dans un environnement préservé, sans pesticides ni engrais chimiques. Récoltées à maturité, elles offrent une chair juteuse, sucrée et parfumée, idéale pour être dégustée fraîche, en jus ou en dessert. En plus d’être une source naturelle de vitamines et d’antioxydants, elles participent à renforcer votre système immunitaire et votre bien-être général."
+  },
+  {
+    "libelle": "Pastèque",
+    "qteStock": 100,
+    "prix": 2000.0,
+    "categoryId": 1,
+    "newPrix": 1800,
+    "note": 4,
+    "isdispo": true,
+    "promo": true,
+    
+    "description": "Rafraîchissante et désaltérante, notre pastèque bio de Thiès est cultivée en plein air sous le climat idéal du Sénégal. Sa chair rouge éclatante et gorgée d’eau est parfaite pour une hydratation naturelle lors des journées chaudes. Riche en lycopène et en antioxydants, elle aide à protéger votre peau et à renforcer votre système cardiovasculaire. Savourez-la en tranches, en smoothies ou en salade pour un plaisir 100% naturel."
+  },
+  {
+    "libelle": "Orange",
+    "qteStock": 100,
+    "prix": 1000.0,
+    "categoryId": 1,
+    "newPrix": 900,
+    "note": 4,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Nos oranges bio de Casamance sont gorgées de soleil et cultivées de manière naturelle pour garantir une saveur sucrée et acidulée. Elles sont riches en vitamine C, essentielles pour renforcer le système immunitaire et lutter contre la fatigue. Leur jus frais et désaltérant est parfait pour bien commencer la journée."
+  },
+  {
+    "libelle": "Citron",
+    "qteStock": 150,
+    "prix": 1100.0,
+    "categoryId": 1,
+    "newPrix": 950,
+    "note": 5,
+    "isdispo": true,
+    "promo": true,
+    
+    "description": "Cultivés en Casamance dans un environnement respectueux de la nature, nos citrons bio sont un concentré de bienfaits. Leur goût acidulé réveille les papilles et se marie parfaitement avec de nombreux plats et boissons."
+  },
+  {
+    "libelle": "Banane",
+    "qteStock": 200,
+    "prix": 1100.0,
+    "categoryId": 1,
+    "newPrix": 900,
+    "note": 4,
+    "isdispo": true,
+    "promo": true,
+    
+    "description": "Savoureuses et énergétiques, nos bananes bio de Casamance sont cultivées dans le respect de l’environnement pour vous offrir un fruit doux et naturel."
+  },
+  {
+    "libelle": "Jujube",
+    "qteStock": 150,
+    "prix": 1200.0,
+    "categoryId": 1,
+    "newPrix": 1000,
+    "note": 3,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Connu sous le nom de 'pomme du désert', notre jujube bio est cultivé avec passion en Casamance. Ce petit fruit sucré et légèrement acidulé est une véritable source d’énergie."
+  },
+  {
+    "libelle": "Tomate",
+    "qteStock": 200,
+    "prix": 1000.0,
+    "categoryId": 2,
+    "newPrix": 900,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Rouges et juteuses, nos tomates bio de Casamance sont gorgées de soleil et cultivées sans pesticides pour préserver leur goût authentique."
+  },
+  {
+    "libelle": "Laitue",
+    "qteStock": 150,
+    "prix": 500.0,
+    "categoryId": 2,
+    "newPrix": 450,
+    "note": 4,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Fraîche et croquante, notre laitue bio de Thiès est cultivée naturellement pour vous offrir un légume idéal pour des salades saines et savoureuses."
+  },
+  {
+    "libelle": "Chou",
+    "qteStock": 150,
+    "prix": 700.0,
+    "categoryId": 2,
+    "newPrix": 600,
+    "note": 4,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Riche en fibres et en vitamines, notre chou bio de Thiès est un légume polyvalent, parfait pour les soupes, les sautés ou les plats mijotés."
+  },
+  {
+    "libelle": "Oignons",
+    "qteStock": 200,
+    "prix": 800.0,
+    "categoryId": 2,
+    "newPrix": 700,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Nos oignons bio de Thiès sont cultivés avec soin pour garantir une saveur intense et naturelle, idéale pour relever tous vos plats."
+  },
+  {
+    "libelle": "Pomme de terre",
+    "qteStock": 200,
+    "prix": 700.0,
+    "categoryId": 2,
+    "newPrix": 650,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Nos pommes de terre bio de Thiès sont cultivées avec passion dans un sol riche et fertile. Leur chair ferme et savoureuse en fait un ingrédient idéal pour une variété de plats : frites croustillantes, purée onctueuse ou gratins dorés. Source naturelle de fibres, de vitamines et de minéraux, elles apportent une énergie saine et durable."
+  },
+  {
+    "libelle": "Carotte",
+    "qteStock": 200,
+    "prix": 800.0,
+    "categoryId": 2,
+    "newPrix": 750,
+    "note": 4,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Croquantes et sucrées, nos carottes bio de Thiès sont un concentré de bienfaits pour la santé. Riches en bêta-carotène et en antioxydants, elles favorisent une bonne vision et renforcent le système immunitaire. Dégustez-les crues pour une collation saine, en jus revitalisant ou dans des plats mijotés pour un goût délicieux."
+  },
+  {
+    "libelle": "Piment",
+    "qteStock": 200,
+    "prix": 700.0,
+    "categoryId": 2,
+    "newPrix": 650,
+    "note": 5,
+    "isdispo": true,
+    "promo": true,
+    
+    "description": "Nos piments bio de Thiès sont cultivés naturellement pour offrir une saveur intense et piquante. Ils relèvent tous vos plats avec une touche exotique et sont riches en capsaïcine, un puissant antioxydant aux multiples bienfaits pour la santé. Que ce soit dans les sauces, les plats épicés ou les marinades, ils apportent un goût inimitable."
+  },
+  {
+    "libelle": "Riz",
+    "qteStock": 200,
+    "prix": 700.0,
+    "categoryId": 3,
+    "newPrix": 650,
+    "note": 5,
+    "isdispo": true,
+    "promo": true,
+    
+    "description": "Cultivé dans les rizières fertiles de Casamance, notre riz bio est un produit authentique, issu d'une agriculture durable."
+  },
+  {
+    "libelle": "Maïs",
+    "qteStock": 150,
+    "prix": 500.0,
+    "categoryId": 3,
+    "newPrix": 450,
+    "note": 4,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Notre maïs bio de Casamance est une céréale naturellement sucrée et nutritive, parfaite pour les plats traditionnels et les en-cas sains."
+  },
+  {
+    "libelle": "Mil",
+    "qteStock": 150,
+    "prix": 600.0,
+    "categoryId": 3,
+    "newPrix": 550,
+    "note": 4,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Le mil bio de Thiès est une céréale ancestrale, riche en fibres et en nutriments essentiels, parfaite pour des repas équilibrés."
+  },
+  {
+    "libelle": "Arachide",
+    "qteStock": 150,
+    "prix": 1200.0,
+    "categoryId": 3,
+    "newPrix": 1100,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Nos arachides bio de Thiès sont cultivées avec soin dans des conditions idéales pour garantir un goût authentique et savoureux."
+  },
+  {
+    "libelle": "Haricot (Niébé)",
+    "qteStock": 150,
+    "prix": 1300.0,
+    "categoryId": 3,
+    "newPrix": 1200,
+    "note": 5,
+    "isdispo": true,
+    "promo": false,
+    
+    "description": "Le haricot niébé, aussi appelé pois à œil noir, est un ingrédient clé de la cuisine sénégalaise. Cultivé biologiquement à Thiès, il est une source essentielle de protéines végétales, idéal pour les végétariens et les amateurs de cuisine saine. Riche en fibres et en fer, il favorise une bonne digestion et renforce l’organisme. Il se déguste en sauce, en ragoût ou en accompagnement des plats de céréales."
+  }
+]
+
+
+{
+    "code" : "FRT_221",
+    "name" : "Fruits"
+},
+{
+    "code" : "LGM_221",
+    "name" : "Legumes"
+},
+{
+    "code" : "CRL_221",
+    "name" : "Cereales"
+}

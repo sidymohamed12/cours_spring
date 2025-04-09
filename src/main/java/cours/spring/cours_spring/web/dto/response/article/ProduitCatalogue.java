@@ -15,4 +15,5 @@ public class ProduitCatalogue {
     private String image;
     private Boolean isdispo;
     private Boolean promo;
+    private String description;
 }

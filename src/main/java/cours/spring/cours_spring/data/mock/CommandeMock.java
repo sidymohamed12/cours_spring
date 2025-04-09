@@ -13,8 +13,8 @@ import cours.spring.cours_spring.data.repository.IClientRepository;
 import cours.spring.cours_spring.data.repository.ICommandeRepository;
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(4)
+// @Component
+// @Order(4)
 @RequiredArgsConstructor
 public class CommandeMock implements CommandLineRunner {
 

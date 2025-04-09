@@ -1,5 +1,5 @@
-<div class="bg-gray-100 dark:bg-gray-800 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gray-100 py-8">
+    <!-- <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
@@ -7,7 +7,7 @@
                 </div>
                 <div class="flex -mx-2 mb-4">
                     <div class="w-1/2 px-2">
-                        <button (click)="onAddToPanier()"
+                        <button
                             class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add
                             to Cart</button>
                     </div>
@@ -28,59 +28,142 @@
                     </div>
                     <div>
                         <span class="font-bold text-gray-700 dark:text-gray-300">Availability : </span>
-                        <span class="text-gray-600 dark:text-gray-300">In Stock</span>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <span class="font-bold text-gray-700 dark:text-gray-300">Select Color :</span>
-                    <div class="flex items-center mt-2">
-                        <button class="w-6 h-6 rounded-full bg-gray-900 dark:bg-gray-200 mr-2"></button>
-                        <button class="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                        <button class="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                        <button class="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <span class="font-bold text-gray-700 dark:text-gray-300">Select Size:</span>
-                    <div class="flex items-center mt-2">
-                        <button
-                            class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">S</button>
-                        <button
-                            class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">M</button>
-                        <button
-                            class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">L</button>
-                        <button
-                            class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XL</button>
-                        <button
-                            class="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XXL</button>
+                        <span
+                            class="text-gray-600 dark:text-gray-300">{{produitDetail.isdispo ? 'INSTOCK' : 'OUT OF STOCK'}}</span>
                     </div>
                 </div>
                 <div>
                     <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
                     <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
-                        lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
-                        ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
-                        sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                        {{produitDetail.description}}
                     </p>
-                    <input type="text" name="" id="" #qteCom (keyup)="onValidateQte(qteCom.value)"
+                    com <input type="text" name="" id="" #qteCom (keyup)="onValidateQte(qteCom.value)"
                         class="mt-4 w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold"
-                        placeholder="Enter quantity" />
+                        placeholder="Enter quantity" /> com
                     <p class="text-red-600">{{errorMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- 666666666666666666666666666666666666666666666 NEW 6666666666666666666666666666666666 -->
+
+
+    <div class="flex w-[1300px] p-10 bg-white rounded-xl mx-auto">
+        <div class="flex flex-col gap-14 items-center">
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 8.5L8 1.5L1 8.5" stroke="#999999" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+            <div class="flex flex-col gap-3">
+                <img class="w-20 h-[90px]" src="https://iili.io/3HJzjs4.png" alt="" /><img class="w-20 h-[90px]"
+                    src="https://iili.io/3HJTOH7.png" alt="" /><img class="w-20 h-[90px]"
+                    src="https://iili.io/3HJTeR9.png" alt="" /><img class="w-20 h-[90px]"
+                    src="https://iili.io/3HJTkNe.png" alt="" />
+            </div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 8.5L12 15.5L5 8.5" stroke="#999999" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </div>
+        <img class="w-[556px] ml-3 mr-6" src="https://iili.io/3HJzNql.png" alt="" />
+        <div>
+            <div class="flex gap-2 items-center">
+                <h1 class="text-[36px] leading-[44px] font-semibold text-black">
+                    {{produitDetail.libelle}}
+                </h1>
+                <span
+                    class="text-sm text-[#2C742F] px-2 py-1 {{produitDetail.isdispo ? 'bg-[#20B526]' : 'bg-red-500'}} bg-opacity-20">{{produitDetail.isdispo ? 'INSTOCK' : 'OUT OF STOCK'}}</span>
+            </div>
+            <div class="flex items-center mt-3 text-sm leading-[1.5]">
+                <span class="flex gap-[2px]">
+                    <ng-container *ngFor="let star of [].constructor(produitDetail.note); let i = index">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.31008 11.9111L11.8566 14.1577C12.31 14.4446 12.8725 14.0177 12.7381 13.4884L11.7138 9.45805C11.6848 9.34579 11.6882 9.22764 11.7234 9.11718C11.7586 9.00673 11.8243 8.90846 11.9129 8.83368L15.0933 6.18711C15.5106 5.83949 15.2958 5.14593 14.7586 5.11105L10.6056 4.84105C10.4938 4.83312 10.3866 4.79359 10.2964 4.72707C10.2061 4.66055 10.1367 4.56977 10.096 4.4653L8.5469 0.564927C8.50471 0.454081 8.42984 0.358673 8.33219 0.291355C8.23455 0.224037 8.11875 0.187988 8.00015 0.187988C7.88155 0.187988 7.76574 0.224037 7.6681 0.291355C7.57046 0.358673 7.49558 0.454081 7.4534 0.564927L5.90427 4.4653C5.86372 4.56988 5.79429 4.66077 5.70406 4.7274C5.61383 4.79402 5.50652 4.83364 5.39465 4.84161L1.24171 5.11161C0.705084 5.14593 0.489084 5.83949 0.907022 6.18711L4.0874 8.83424C4.17588 8.90898 4.2415 9.00715 4.27673 9.11749C4.31195 9.22783 4.31534 9.34587 4.28652 9.45805L3.33702 13.1959C3.17558 13.8309 3.85115 14.3434 4.39452 13.9986L7.69077 11.9111C7.78342 11.8522 7.89093 11.8209 8.00071 11.8209C8.11049 11.8209 8.218 11.8522 8.31065 11.9111H8.31008Z"
+                                fill="#FF8A00"></path>
+                        </svg>
+                    </ng-container>
+                </span>
+                <span class="ml-1 mr-3">{{produitDetail.note}} Review . </span>
+            </div>
+            <div class="h-9 mt-5 justify-start items-center gap-3 inline-flex">
+                <div class="justify-start items-center gap-1 flex">
+                    <div class="text-[#b3b3b3] text-xl font-normal line-through leading-[30px]">
+                        {{produitDetail.prix}} Fcfa/kg
+                    </div>
+                    <div class="text-[#2c732f] text-2xl font-medium leading-9">
+                        {{produitDetail.newPrix}} Fcfa/kg
+                    </div>
+                </div>
+                <div
+                    class="px-2.5 py-[3px] bg-[#e94b48]/10 rounded-[30px] text-[#e94b48] text-sm font-medium leading-[21px]">
+                    64% Off
+                </div>
+            </div>
+            <p class="w-[500px] text-justify text-[#7f7f7f] text-sm font-normal mt-4 leading-6">
+                {{produitDetail.description}}
+            </p>
+            <div
+                class="h-[88px] mt-6 py-[18px] bg-white shadow-[0px_1px_0px_0px_rgba(229,229,229,1.00)] border border-white justify-center items-center gap-3 flex">
+
+                <div class="p-2 bg-white rounded-[170px] border border-neutral-200 justify-center items-center flex">
+                    <!-- decrement -->
+                    <button class="w-[34px] h-[34px]" type="button" (click)="decrement()">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.33398 7H11.6673" stroke="#666666" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- case nombre -->
+                    <input class="w-15 text-center border-0 text-[#191919] text-base font-normal leading-normal"
+                        type="text" [value]="quantity" (input)="onQuantityChange($event)" />
+
+                    <!-- increment -->
+                    <button class="flex items-center justify-end w-[34px] h-[34px]" type="button" (click)="increment()">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.33398 6.99998H11.6673M7.00065 2.33331V11.6666V2.33331Z" stroke="#1A1A1A"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <button (click)="onAddToPanier()"
+                    class="h-[51px] px-20 py-4 bg-[#00b206] rounded-[43px] justify-center items-center gap-4 flex">
+                    <span class="text-white text-base font-semibold leading-tight">Add to Cart</span>
+                    <div>
+                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5.16667 7.33333H2.66667L1 16.5H16L14.3333 7.33333H11.8333M5.16667 7.33333V4.83333C5.16667 2.99239 6.65905 1.5 8.5 1.5V1.5C10.3409 1.5 11.8333 2.99238 11.8333 4.83333V7.33333M5.16667 7.33333H11.8333M5.16667 7.33333V9.83333M11.8333 7.33333V9.83333"
+                                stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                </button>
+                <div>
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="52" rx="26" fill="#20B526" fill-opacity="0.1"></rect>
+                        <path
+                            d="M25.9996 33.5451C9.33328 24.3334 20.9999 14.3334 25.9996 20.6567C30.9999 14.3334 42.6666 24.3334 25.9996 33.5451Z"
+                            stroke="#2C742F" stroke-width="1.5"></path>
+                    </svg>
+                </div>
+            </div>
+            <p class="text-red-600">{{errorMessage}}</p>
+            <div class="h-[54px] mt-6 flex-col justify-start items-start gap-3 inline-flex">
+                <div class="justify-start items-start gap-1.5 inline-flex">
+                    <span class="text-[#191919] text-sm font-medium leading-[21px]">Category:</span><span
+                        class="text-[#7f7f7f] text-sm font-normal leading-[21px]">Vegetables</span>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
     <!-- --------------------------------------------- -->
-    <div class="relative bg-gradient-to-br from-primary-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <div class="relative bg-gradient-to-br from-primary-50 to-white">
         <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl font-bold text-primary-800 dark:text-white mb-8 animate-bounce-slow">Articles Similaires
+            <h1 class="text-4xl font-bold text-[#2C742F] mb-8 animate-bounce-slow"> Similaires
             </h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @for(produit of produitDetail.produitCategory; track produit.id){

@@ -28,7 +28,6 @@ export class PageDetailComponent implements OnInit {
   // -------------------------------------------------------------
   ngOnInit(): void {
     let id = this.route.snapshot.params['produit_id'];
-    alert(id);
     this.catalogueService.getArticleById(id).subscribe((data) => {
       this.produitDetail = data;
       console.log(this.produitDetail);
@@ -43,7 +42,11 @@ export class PageDetailComponent implements OnInit {
     }
 
     this.produitDetail.qteCom = this.quantity;
-    this.panierService.addProduit2(this.produitDetail);
+    const produitCatalogue = {
+      ...this.produitDetail,
+      category: this.produitDetail.category.name,
+    };
+    this.panierService.addProduit2(produitCatalogue);
     console.log(this.panierService.panierFinal().produits);
   }
 

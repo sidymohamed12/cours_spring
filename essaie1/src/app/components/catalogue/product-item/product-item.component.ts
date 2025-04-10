@@ -2,10 +2,11 @@ import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProduitCatalogue } from '../../../shared/model/Catalogue';
 import { PanierService } from '../../../shared/service/implement/panier.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-product-item',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.css',
 })

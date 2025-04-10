@@ -9,4 +9,9 @@ import { PanierService } from '../../../shared/service/implement/panier.service'
 })
 export class PagePanierComponent {
   public readonly panierService: PanierService = inject(PanierService);
+  public produitsPanier = this.panierService.panierFinal().produits;
+
+  public deleteItem(idItem: number) {
+    this.panierService.removeProduit(idItem);
+  }
 }

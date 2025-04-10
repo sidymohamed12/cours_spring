@@ -24,6 +24,7 @@ public interface ArticleMapper {
     @Mapping(source = "categorie.name", target = "category")
     ArticleAllResponse toAllResponse(Article article);
 
+    @Mapping(source = "categorie.name", target = "category")
     ProduitCatalogue toCatalogue(Article article);
 
 }

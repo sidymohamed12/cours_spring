@@ -11,14 +11,15 @@
                                 <th class="text-center font-semibold">Price</th>
                                 <th class="text-center font-semibold">Quantity</th>
                                 <th class="text-center font-semibold">Total</th>
+                                <th class="text-center font-semibold">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @for (item of panierService.panierFinal().produits; track item.id) {
+                            @for (item of produitsPanier; track item.id) {
                             <tr class="text-center border-b">
                                 <td class="py-4">
                                     <div class="flex items-center">
-                                        <img class="h-16 w-16 mr-4" src="item.image" alt="Product">
+                                        <img class="h-16 w-16 mr-4" [src]="item.photos[0].imagePath" alt="Product">
                                         <span class="font-semibold">{{item.libelle}}</span>
                                     </div>
                                 </td>
@@ -26,6 +27,17 @@
                                 <td class="py-4">{{item.qteCom}}
                                 </td>
                                 <td class="py-4">{{(item.promo?item.prix:item.newPrix ?? 0) * (item.qteCom ?? 0)}}</td>
+                                <td class="py-4 flex items-center justify-center">
+                                    <button type="button" (click)="deleteItem(item.id)"
+                                        class="text-red-600 mt-5 cursor-pointer flex items-center space-x-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.136 21H7.864a2 2 0 01-1.997-1.858L5 7m5-4h4m-4 0a2 2 0 00-2 2v1h8V5a2 2 0 00-2-2m-4 0h4" />
+                                        </svg>
+                                        <span>SUPPRIMER</span>
+                                    </button>
+                                </td>
                             </tr>}
                             <!-- More product rows -->
                         </tbody>

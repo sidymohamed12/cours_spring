@@ -44,7 +44,19 @@ export class PanierService {
     return produitList;
   }
 
-  removeProduit(produit: ProduitCatalogue): void {}
+  removeProduit(id: number): void {
+    this.panierFinal.update((panier) => {
+      let index: number = panier.produits.findIndex(
+        (produit) => produit.id === id
+      );
+      if (index >= 0) {
+        panier.total -=
+          panier.produits[index].prix * panier.produits[index].qteCom!;
+        panier.produits.splice(index, 1);
+      }
+      return panier;
+    });
+  }
 
   clearPanier(): void {
     this.initialize();

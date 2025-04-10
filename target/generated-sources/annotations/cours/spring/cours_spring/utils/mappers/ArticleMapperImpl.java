@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-10T04:16:08+0000",
+    date = "2025-04-10T16:52:31+0000",
     comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.42.0.z20250331-1358, environment: Java 21.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -95,6 +95,7 @@ public class ArticleMapperImpl implements ArticleMapper {
 
         ProduitCatalogue produitCatalogue = new ProduitCatalogue();
 
+        produitCatalogue.setCategory( articleCategorieName( article ) );
         produitCatalogue.setDescription( article.getDescription() );
         produitCatalogue.setId( article.getId() );
         produitCatalogue.setIsdispo( article.getIsdispo() );

@@ -20,4 +20,5 @@ public class ProduitCatalogue {
     private Boolean promo;
     private String description;
     private List<PhotoAllResponse> photos;
+    private String category;
 }

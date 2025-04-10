@@ -10,6 +10,7 @@ export interface ProduitCatalogue {
   isdispo: boolean;
   promo: boolean;
   description: string;
+  category: string;
   photos: Photo[];
 }
 
@@ -17,6 +18,12 @@ export interface Photo {
   id: number;
   articleLibelle: string;
   imagePath: string;
+}
+
+export interface Categorie {
+  id: number;
+  name: string;
+  code: string;
 }
 
 export interface ProduitDetail {
@@ -31,6 +38,7 @@ export interface ProduitDetail {
   isdispo: boolean;
   promo: boolean;
   description: string;
+  category: Categorie;
   produitCategory: ProduitCatalogue[];
   photos: Photo[];
 

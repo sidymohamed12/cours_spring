@@ -1,6 +1,15 @@
 <!-- component -->
 <!-- banniére -->
-<section class=" w-full  bg-[#0A2025] py-9 px-8">
+<section class="bg-cover bg-center h-72" style="background-image: url('img/tracteur.jpg');filter: blur(2px)">
+    <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
+        <div class="text-center text-white">
+            <h1 class="text-6xl font-bold mb-4 text-white ">Découvrez notre gamme de produits</h1>
+        </div>
+    </div>
+</section>
+
+<!-- <section class=" w-full  bg-[#0A2025] py-9 px-8">
+
     <div
         class="mx-auto flex  flex-col items-center lg:flex-row justify-center gap-10 py-10 max-w-[1440px] bg-no-repeat ">
         <div class="w-[660px]  flex-col justify-center items-start gap-20 inline-flex">
@@ -31,10 +40,10 @@
             </div>
         </div><img class="w-full max-w-[400px]" src="https://iili.io/338c9je.png" alt="">
     </div>
-</section>
+</section> -->
 
 <!-- liste des products -->
-<div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-3 mt-8">
+<div class="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-20 mt-8 ">
     @for(produit of produits; track produit.id){
     <app-product-item [produit]="produit" />
     }

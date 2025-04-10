@@ -1,5 +1,8 @@
 package cours.spring.cours_spring.web.dto.response.article;
 
+import java.util.List;
+
+import cours.spring.cours_spring.web.dto.response.photo.PhotoAllResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,5 +19,6 @@ public class ArticleAllResponse {
     private Double prix;
     private String category;
     private String description;
+    private List<PhotoAllResponse> photos;
 
 }

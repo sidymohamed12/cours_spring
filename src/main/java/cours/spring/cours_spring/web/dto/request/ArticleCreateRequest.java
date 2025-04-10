@@ -25,7 +25,6 @@ public class ArticleCreateRequest {
     @NotNull
     private Integer categoryId;
 
-    private String image;
     private Double newPrix;
     private Integer note;
     private Boolean isdispo;

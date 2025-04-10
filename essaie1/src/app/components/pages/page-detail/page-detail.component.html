@@ -55,18 +55,19 @@
                 <path d="M15 8.5L8 1.5L1 8.5" stroke="#999999" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round"></path>
             </svg>
+
+
             <div class="flex flex-col gap-3">
-                <img class="w-20 h-[90px]" src="img/fruits/bananes/banane.jpg" alt="" /><img class="w-20 h-[90px]"
-                    src="https://iili.io/3HJTOH7.png" alt="" /><img class="w-20 h-[90px]"
-                    src="https://iili.io/3HJTeR9.png" alt="" /><img class="w-20 h-[90px]"
-                    src="https://iili.io/3HJTkNe.png" alt="" />
+                @for (photo of produitDetail.photos; track photo.id) {
+                <img class="w-20 h-[90px]" [src]="photo.imagePath" alt="" />
+                }
             </div>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 8.5L12 15.5L5 8.5" stroke="#999999" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round"></path>
             </svg>
         </div>
-        <img class="w-[556px] ml-3 mr-6" src="https://iili.io/3HJzNql.png" alt="" />
+        <img class="w-[556px] h-[556px] ml-3 mr-6" [src]="produitDetail.photos[0].imagePath" alt="" />
         <div>
             <div class="flex gap-2 items-center">
                 <h1 class="text-[36px] leading-[44px] font-semibold text-black">
@@ -101,7 +102,7 @@
                     64% Off
                 </div>
             </div>
-            <p class="w-[500px] text-justify text-[#7f7f7f] text-sm font-normal mt-4 leading-6">
+            <p class="w-[500px] text-justify text-[#7f7f7f] text-sm font-normal mt-4 leading-8">
                 {{produitDetail.description}}
             </p>
             <div

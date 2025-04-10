@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import cours.spring.cours_spring.data.entities.Article;
 import cours.spring.cours_spring.services.IArticleService;
 import cours.spring.cours_spring.services.ICategoryService;
+import cours.spring.cours_spring.services.IPhotoService;
 import cours.spring.cours_spring.utils.mappers.ArticleMapper;
+import cours.spring.cours_spring.utils.mappers.PhotoMapper;
 import cours.spring.cours_spring.web.controllers.IArticleController;
 import cours.spring.cours_spring.web.dto.RestResponse;
 import cours.spring.cours_spring.web.dto.request.ArticleCreateRequest;
+import cours.spring.cours_spring.web.dto.response.article.ArticleAllResponse;
 import cours.spring.cours_spring.web.dto.response.article.ArticleOneResponse;
 import cours.spring.cours_spring.web.dto.response.article.ProduitCatalogue;
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,6 +35,8 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController implements IArticleController {
 
     private final IArticleService articleService;
+    private final IPhotoService photoService;
+    private final PhotoMapper photoMapper;
     private final ArticleMapper articleMapper;
 
     @Override
@@ -40,10 +45,21 @@ public class ArticleController implements IArticleController {
         var pageable = PageRequest.of(page, size);
         var articles = articleService.getAll(pageable);
         var articlesResponse = articles.map(articleMapper::toAllResponse);
+        var processedArticles = articlesResponse.getContent()
+                .stream()
+                .map(articleAllResponse -> {
+                    var photosArticle = photoService.getAllPhotosByArticle(articleAllResponse.getId());
+                    var photosResponse = photosArticle.stream()
+                            .map(photoMapper::toPhotoAllResponse)
+                            .toList();
+                    articleAllResponse.setPhotos(photosResponse);
+                    return articleAllResponse;
+                })
+                .toList();
         var totalPages = articlesResponse.getTotalPages();
 
         return new ResponseEntity<>(RestResponse.responsePaginate(
-                HttpStatus.OK, articlesResponse.getContent(), "articlesResponse", new int[totalPages],
+                HttpStatus.OK, processedArticles, "articlesResponse", new int[totalPages],
                 articlesResponse.getNumber(), totalPages, articlesResponse.getTotalElements(),
                 articlesResponse.isFirst(), articlesResponse.isLast()), HttpStatus.OK);
     }
@@ -77,6 +93,13 @@ public class ArticleController implements IArticleController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         var response = articleMapper.toOneResponse(article);
+        var photosArticle = photoService.getAllPhotosByArticle(article.getId());
+        var photosResponse = photosArticle.stream()
+                .map(photoMapper::toPhotoAllResponse)
+                .toList();
+
+        // --------------------
+
         var produitCategory = articleService.getAllArticleByCategorie(response.getCategory().getId());
         var produitCategoryResponse = produitCategory
                 .stream()
@@ -84,6 +107,7 @@ public class ArticleController implements IArticleController {
                 .toList();
 
         response.setProduitCategory(produitCategoryResponse);
+        response.setPhotos(photosResponse);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -124,7 +148,17 @@ public class ArticleController implements IArticleController {
                 .stream()
                 .map(articleMapper::toCatalogue)
                 .toList();
-        return new ResponseEntity<>(articlesResponse, HttpStatus.OK);
+        var response = articlesResponse.stream()
+                .map(article -> {
+                    var photosArticle = photoService.getAllPhotosByArticle(article.getId());
+                    var photosResponse = photosArticle.stream()
+                            .map(photoMapper::toPhotoAllResponse)
+                            .toList();
+                    article.setPhotos(photosResponse);
+                    return article;
+                })
+                .toList();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }

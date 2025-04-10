@@ -30,8 +30,6 @@ public class Article {
     @Lob
     @Column(columnDefinition = "TEXT")
     private String description;
-    // @Column(nullable = false)
-    private String image;
 
     private Double newPrix;
     private Integer note;
@@ -41,5 +39,8 @@ public class Article {
     private Categorie categorie;
     @OneToMany(mappedBy = "article")
     private List<Detail> details = new ArrayList<>();
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private List<Photo> photos = new ArrayList<>();
 
 }

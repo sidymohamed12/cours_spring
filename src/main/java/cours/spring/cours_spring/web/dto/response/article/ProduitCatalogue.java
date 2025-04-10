@@ -1,5 +1,8 @@
 package cours.spring.cours_spring.web.dto.response.article;
 
+import java.util.List;
+
+import cours.spring.cours_spring.web.dto.response.photo.PhotoAllResponse;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,4 +19,5 @@ public class ProduitCatalogue {
     private Boolean isdispo;
     private Boolean promo;
     private String description;
+    private List<PhotoAllResponse> photos;
 }

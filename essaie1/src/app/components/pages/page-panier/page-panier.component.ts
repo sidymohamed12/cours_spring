@@ -1,5 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
-import { CardPanierComponent } from '../../catalogue/card-panier/card-panier.component';
+import { Component, inject } from '@angular/core';
 import { PanierService } from '../../../shared/service/implement/panier.service';
 
 @Component({

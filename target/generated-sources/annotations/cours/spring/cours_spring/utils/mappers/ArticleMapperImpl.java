@@ -2,17 +2,21 @@ package cours.spring.cours_spring.utils.mappers;
 
 import cours.spring.cours_spring.data.entities.Article;
 import cours.spring.cours_spring.data.entities.Categorie;
+import cours.spring.cours_spring.data.entities.Photo;
 import cours.spring.cours_spring.web.dto.request.ArticleCreateRequest;
 import cours.spring.cours_spring.web.dto.response.article.ArticleAllResponse;
 import cours.spring.cours_spring.web.dto.response.article.ArticleOneResponse;
 import cours.spring.cours_spring.web.dto.response.article.ProduitCatalogue;
 import cours.spring.cours_spring.web.dto.response.category.CategorySimpleResponse;
+import cours.spring.cours_spring.web.dto.response.photo.PhotoAllResponse;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-02T13:59:58+0000",
+    date = "2025-04-10T04:16:08+0000",
     comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.42.0.z20250331-1358, environment: Java 21.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -28,7 +32,6 @@ public class ArticleMapperImpl implements ArticleMapper {
 
         article.setCategorie( articleCreateRequestToCategorie( request ) );
         article.setDescription( request.getDescription() );
-        article.setImage( request.getImage() );
         article.setIsdispo( request.getIsdispo() );
         article.setLibelle( request.getLibelle() );
         article.setNewPrix( request.getNewPrix() );
@@ -52,11 +55,11 @@ public class ArticleMapperImpl implements ArticleMapper {
         articleOneResponse.setCode( article.getCode() );
         articleOneResponse.setDescription( article.getDescription() );
         articleOneResponse.setId( article.getId() );
-        articleOneResponse.setImage( article.getImage() );
         articleOneResponse.setIsdispo( article.getIsdispo() );
         articleOneResponse.setLibelle( article.getLibelle() );
         articleOneResponse.setNewPrix( article.getNewPrix() );
         articleOneResponse.setNote( article.getNote() );
+        articleOneResponse.setPhotos( photoListToPhotoAllResponseList( article.getPhotos() ) );
         articleOneResponse.setPrix( article.getPrix() );
         articleOneResponse.setPromo( article.getPromo() );
         articleOneResponse.setQteStock( article.getQteStock() );
@@ -77,6 +80,7 @@ public class ArticleMapperImpl implements ArticleMapper {
         articleAllResponse.setDescription( article.getDescription() );
         articleAllResponse.setId( article.getId() );
         articleAllResponse.setLibelle( article.getLibelle() );
+        articleAllResponse.setPhotos( photoListToPhotoAllResponseList( article.getPhotos() ) );
         articleAllResponse.setPrix( article.getPrix() );
         articleAllResponse.setQteStock( article.getQteStock() );
 
@@ -93,11 +97,11 @@ public class ArticleMapperImpl implements ArticleMapper {
 
         produitCatalogue.setDescription( article.getDescription() );
         produitCatalogue.setId( article.getId() );
-        produitCatalogue.setImage( article.getImage() );
         produitCatalogue.setIsdispo( article.getIsdispo() );
         produitCatalogue.setLibelle( article.getLibelle() );
         produitCatalogue.setNewPrix( article.getNewPrix() );
         produitCatalogue.setNote( article.getNote() );
+        produitCatalogue.setPhotos( photoListToPhotoAllResponseList( article.getPhotos() ) );
         produitCatalogue.setPrix( article.getPrix() );
         produitCatalogue.setPromo( article.getPromo() );
         produitCatalogue.setQteStock( article.getQteStock() );
@@ -129,6 +133,32 @@ public class ArticleMapperImpl implements ArticleMapper {
         categorySimpleResponse.setName( categorie.getName() );
 
         return categorySimpleResponse;
+    }
+
+    protected PhotoAllResponse photoToPhotoAllResponse(Photo photo) {
+        if ( photo == null ) {
+            return null;
+        }
+
+        PhotoAllResponse photoAllResponse = new PhotoAllResponse();
+
+        photoAllResponse.setId( photo.getId() );
+        photoAllResponse.setImagePath( photo.getImagePath() );
+
+        return photoAllResponse;
+    }
+
+    protected List<PhotoAllResponse> photoListToPhotoAllResponseList(List<Photo> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<PhotoAllResponse> list1 = new ArrayList<PhotoAllResponse>( list.size() );
+        for ( Photo photo : list ) {
+            list1.add( photoToPhotoAllResponse( photo ) );
+        }
+
+        return list1;
     }
 
     private String articleCategorieName(Article article) {

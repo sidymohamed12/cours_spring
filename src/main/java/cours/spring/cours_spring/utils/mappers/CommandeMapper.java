@@ -14,7 +14,7 @@ import cours.spring.cours_spring.web.dto.response.commande.CommandeSimpleRespons
 public interface CommandeMapper {
     CommandeMapper INSTANCE = Mappers.getMapper(CommandeMapper.class);
 
-    @Mapping(source = "clientId", target = "client")
+    @Mapping(source = "clientId", target = "client.id")
     Commande toEntity(CommandeCreateRequest request);
 
     @Mapping(source = "client", target = "client")
@@ -27,12 +27,12 @@ public interface CommandeMapper {
         return client != null ? client.getName() : null;
     }
 
-    default Client mapClient(Integer id) {
-        if (id == null) {
-            return null;
-        }
-        Client client = new Client();
-        client.setId(id);
-        return client;
-    }
+    // default Client mapClient(Integer id) {
+    // if (id == null) {
+    // return null;
+    // }
+    // Client client = new Client();
+    // client.setId(id);
+    // return client;
+    // }
 }

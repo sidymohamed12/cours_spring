@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-04-02T13:59:59+0000",
+    date = "2025-04-09T22:31:12+0000",
     comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.42.0.z20250331-1358, environment: Java 21.0.6 (Eclipse Adoptium)"
 )
 @Component
@@ -25,7 +25,7 @@ public class CommandeMapperImpl implements CommandeMapper {
 
         Commande commande = new Commande();
 
-        commande.setClient( mapClient( request.getClientId() ) );
+        commande.setClient( commandeCreateRequestToClient( request ) );
         commande.setDate( request.getDate() );
         commande.setMontant( request.getMontant() );
 
@@ -62,6 +62,18 @@ public class CommandeMapperImpl implements CommandeMapper {
         commandeOneResponse.setMontant( commande.getMontant() );
 
         return commandeOneResponse;
+    }
+
+    protected Client commandeCreateRequestToClient(CommandeCreateRequest commandeCreateRequest) {
+        if ( commandeCreateRequest == null ) {
+            return null;
+        }
+
+        Client client = new Client();
+
+        client.setId( commandeCreateRequest.getClientId() );
+
+        return client;
     }
 
     protected ClientSimpleResponse clientToClientSimpleResponse(Client client) {

@@ -34,7 +34,6 @@ public class ArticleMock implements CommandLineRunner {
                 article.setCode(categorie.getName() + "_codeArt_" + i);
                 article.setLibelle(categorie.getId() + "_article_" + i);
                 article.setPrix(10000.0 * i);
-                article.setImage("https://picsum.photos/200/300?random=" + i);
                 article.setPromo(false);
                 article.setNewPrix(0.0);
 

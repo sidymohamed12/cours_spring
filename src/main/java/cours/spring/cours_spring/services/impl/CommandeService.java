@@ -31,6 +31,11 @@ public class CommandeService implements ICommandeService {
     }
 
     @Override
+    public Page<Commande> getAll(Pageable pageable) {
+        return commandeRepository.findAll(pageable);
+    }
+
+    @Override
     public Commande update(Integer id, Commande value) {
         Commande data = commandeRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("l'id n'existe pas"));
@@ -58,8 +63,4 @@ public class CommandeService implements ICommandeService {
         return false;
     }
 
-    @Override
-    public Page<Commande> getAll(Pageable pageable) {
-        return commandeRepository.findAll(pageable);
-    }
 }

@@ -13,11 +13,20 @@ GET http://localhost:8080/article/catalogue
 ################################
 GET http://localhost:8080/categorie?page=2
 
+################################
+GET http://localhost:8080/photo
+
 ##################################### LIST ONE #############################################
 GET http://localhost:8080/article/5
 
 ################################
 GET http://localhost:8080/categorie/2
+
+################################
+GET http://localhost:8080/photo/2
+
+################################
+GET http://localhost:8080/photo/article/19
 
 ################################
 GET http://localhost:8080/categorie/3/articles

@@ -3,6 +3,7 @@ package cours.spring.cours_spring.web.dto.response.article;
 import java.util.List;
 
 import cours.spring.cours_spring.web.dto.response.category.CategorySimpleResponse;
+import cours.spring.cours_spring.web.dto.response.photo.PhotoAllResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,11 +20,11 @@ public class ArticleOneResponse {
     private Double prix;
     private Double newPrix;
     private Integer note;
-    private String image;
     private Boolean isdispo;
     private Boolean promo;
     private String description;
     private CategorySimpleResponse category;
     private List<ProduitCatalogue> produitCategory;
+    private List<PhotoAllResponse> photos;
 
 }

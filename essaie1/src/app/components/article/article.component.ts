@@ -28,5 +28,6 @@ export class ArticleComponent extends Pagination<any> implements OnInit {
       this.currentPage = +params['page'] || 0; // Récupérer la page depuis l'URL
       this.loadItems();
     });
+    console.log(this.items);
   }
 }

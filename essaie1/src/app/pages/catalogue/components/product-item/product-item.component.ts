@@ -1,8 +1,8 @@
 import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProduitCatalogue } from '../../../shared/model/Catalogue';
-import { PanierService } from '../../../shared/service/implement/panier.service';
 import { NgFor } from '@angular/common';
+import { PanierService } from '../../../../shared/service/implement/panier.service';
+import { ProduitCatalogue } from '../../../../shared/model/Catalogue';
 
 @Component({
   selector: 'app-product-item',
@@ -18,7 +18,7 @@ export class ProductItemComponent {
   constructor(private readonly router: Router) {}
 
   onLoadViewDetail(id: number) {
-    this.router.navigateByUrl(`/detail/${id}`); // c'est du event binding
+    this.router.navigateByUrl(`catalogue/detail/${id}`); // c'est du event binding
   }
 
   onAddToPanier() {

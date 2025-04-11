@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PanierService } from '../../../shared/service/implement/panier.service';
+import { PanierService } from '../../service/implement/panier.service';
 
 @Component({
   selector: 'app-nav',

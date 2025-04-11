@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { IAuthentificationService } from '../IAuthentificationService';
 import { Observable, of } from 'rxjs';
-import { LoginResponse, User } from '../../model/User';
+import { LoginResponse, User, UserRole } from '../../model/User';
 import { Mock_User } from '../../mocks/UserMock';
 
 @Injectable({
@@ -11,6 +11,9 @@ export class AuthentificationMockService implements IAuthentificationService {
   currentUser = signal<User | null>(null);
 
   constructor() {}
+  hasRole(role: UserRole): boolean {
+    return this.isAuthenticated() && this.currentUser()?.role === role;
+  }
 
   login(email: string, password: string): Observable<LoginResponse> {
     const userConnect = Mock_User.find(
@@ -25,7 +28,7 @@ export class AuthentificationMockService implements IAuthentificationService {
       });
     }
     return of({
-      message: 'Login failed',
+      message: 'Login failed ✖️',
       success: false,
       data: null,
     });

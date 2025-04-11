@@ -10,7 +10,7 @@ import { PageNofoundComponent } from './pages/page-nofound/page-nofound.componen
 import { SecurityComponent } from './pages/security/security.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProduitComponent } from './pages/admin/produit/produit.component';
-import { ClientComponent } from './pages/admin/client/client.component';
+import { ClientComponent } from './pages/catalogue/client/client.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +20,7 @@ export const routes: Routes = [
       { path: '', component: PageCatalogueComponent },
       { path: 'panier', component: PagePanierComponent },
       { path: 'detail/:produit_id', component: PageDetailComponent },
+      { path: 'commande', component: ClientComponent },
     ],
   },
   {
@@ -33,7 +34,6 @@ export const routes: Routes = [
     children: [
       { path: 'produit', component: ProduitComponent },
       { path: 'Commande', component: CommandeComponent },
-      { path: 'client', component: ClientComponent },
     ],
   },
   { path: 'categorie', component: CategorieComponent },

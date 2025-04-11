@@ -1,10 +1,10 @@
 <div class="min-h-screen flex items-center justify-center bg-green-100">
     <div class="max-w-4xl w-full flex mx-auto items-center justify-center">
         <div
-            class="flex w-full mx-auto bg-white rounded-lg shadow-[0px_0px_12px_0px_rgba(32,181,38,0.32)] border border-[#2c732f]">
+            class="flex w-full mx-auto bg-white rounded-lg shadow-[0px_0px_12px_0px_rgba(32,181,38,0.32)] border border-[#48930B]">
             <!-- Logo Section (à gauche) -->
-            <div class="w-1/2 p-8 flex justify-center items-center border-r-2">
-                <img src="logo.png" alt="Logo" class="h-68" />
+            <div class="w-1/2 p-8 flex justify-center items-center border-r-2 border-[#48930B]">
+                <img src="logo.png" alt="Logo" class="h-72" />
             </div>
 
             <!-- Formulaire de Connexion (à droite) -->
@@ -12,28 +12,75 @@
                 <h2 class="text-3xl font-bold mb-4 text-gray-800 text-center underline">
                     Se Connecter
                 </h2>
-                <form action="#" method="POST">
+                <h3 class="text-red-400 text-center font-bold">{{errorMessage}}</h3>
+                <form [formGroup]="formLogin2" (ngSubmit)="login()" action="#" method="POST">
                     <!-- Email -->
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700">Email</label>
-                        <input type="email" id="email" name="email"
+                        <input type="email" id="email" name="email" formControlName="email"
                             class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                             placeholder="Votre email" required />
+                        @if (formLogin2.get('email')?.invalid && formLogin2.get('email')?.touched) {
+                        <span *ngIf="formLogin2.get('email')?.errors?.['required']" class="text-red-400">champ
+                            requis</span>
+                        <span *ngIf="formLogin2.get('email')?.errors?.['email']" class="text-red-400">email
+                            invalid</span>
+                        }
+
                     </div>
 
                     <!-- Password -->
                     <div class="mb-6">
                         <label for="password" class="block text-gray-700">Mot de passe</label>
-                        <input type="password" id="password" name="password"
+                        <input type="password" id="password" name="password" formControlName="password"
                             class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                             placeholder="Votre mot de passe" required />
+                        <div>
+                            @if (formLogin2.get('password')?.invalid && formLogin2.get('password')?.touched) {
+                            <span *ngIf="formLogin2.get('password')?.errors?.['required']" class="text-red-400">champ
+                                requis
+                            </span>
+                            <span *ngIf="formLogin2.get('password')?.errors?.['minlength']"
+                                class="text-red-400">password
+                                trop court
+                            </span>
+                            }
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div>
+                                <input type="checkbox" id="rememberMe" name="rememberMe" class="mr-2 leading-tight" />
+                                <label for="rememberMe" class="text-sm text-gray-600">Se souvenir de moi</label>
+                            </div>
+                            <a
+                                class="text-sm text-[#48930B] font-semibold hover:underline cursor-pointer flex justify-end">Mot
+                                de passe
+                                oublié ?</a>
+                        </div>
+
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit"
-                        class="w-full p-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <a href="index.html">Se connecter</a>
+                    <button type="submit" [disabled]="formLogin2.invalid || loading"
+                        class="w-full p-3 bg-[#48930B] text-white font-semibold rounded-lg hover:bg-[#2c732f] focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        <span *ngIf="!loading">Se connecter</span>
+                        <span *ngIf="loading" class="flex items-center gap-2">
+                            Connexion...
+                            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
+                            </svg>
+                        </span>
                     </button>
+                    <div>
+                        <p class="text-center text-gray-600 mt-4">Vous n'avez pas de compte ?
+                            <a class="text-[#48930B] hover:underline font-bold cursor-pointer">S'inscrire
+                            </a>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>

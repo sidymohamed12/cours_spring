@@ -23,5 +23,5 @@ public interface ClientMapper {
     ClientSimpleResponse toSimpleResponse(Client client);
 
     @Mapping(source = "commandes", target = "commandes")
-    ClientWithCommandeResponse ResponseClientWithCommande(Client client);
+    ClientWithCommandeResponse toResponseClientWithCommande(Client client);
 }

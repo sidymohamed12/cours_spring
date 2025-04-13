@@ -1,6 +1,7 @@
 package cours.spring.cours_spring.web.dto.request;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
@@ -13,4 +14,5 @@ public class CommandeCreateRequest {
     private Double montant;
     private LocalDateTime date = LocalDateTime.now();
     private Integer clientId;
+    private List<DetailCreateRequest> details;
 }

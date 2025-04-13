@@ -13,14 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cours.spring.cours_spring.data.entities.Article;
 import cours.spring.cours_spring.services.IArticleService;
-import cours.spring.cours_spring.services.ICategoryService;
 import cours.spring.cours_spring.services.IPhotoService;
 import cours.spring.cours_spring.utils.mappers.ArticleMapper;
 import cours.spring.cours_spring.utils.mappers.PhotoMapper;
 import cours.spring.cours_spring.web.controllers.IArticleController;
 import cours.spring.cours_spring.web.dto.RestResponse;
 import cours.spring.cours_spring.web.dto.request.ArticleCreateRequest;
-import cours.spring.cours_spring.web.dto.response.article.ArticleAllResponse;
 import cours.spring.cours_spring.web.dto.response.article.ArticleOneResponse;
 import cours.spring.cours_spring.web.dto.response.article.ProduitCatalogue;
 import io.swagger.v3.oas.annotations.Operation;

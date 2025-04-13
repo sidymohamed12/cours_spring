@@ -26,6 +26,6 @@ public class Commande {
     private LocalDateTime date = LocalDateTime.now();
     @ManyToOne
     private Client client;
-    @OneToMany(mappedBy = "commande")
+    @OneToMany(mappedBy = "commande", cascade = CascadeType.PERSIST)
     private List<Detail> details = new ArrayList<>();
 }

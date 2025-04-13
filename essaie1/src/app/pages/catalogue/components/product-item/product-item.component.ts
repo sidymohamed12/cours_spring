@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { PanierService } from '../../../../shared/service/implement/panier.service';
 import { ProduitCatalogue } from '../../../../shared/model/Catalogue';
@@ -17,8 +17,21 @@ export class ProductItemComponent {
 
   constructor(private readonly router: Router) {}
 
+  // async onLoadViewDetail(id: number) {
+  //   this.router
+  //     .navigateByUrl('.', {
+  //       skipLocationChange: true,
+  //     })
+  //     .then(() => {
+  //       this.router.navigate([`/catalogue/detail/${id}`]);
+  //     });
+  // }
+
   onLoadViewDetail(id: number) {
     this.router.navigateByUrl(`catalogue/detail/${id}`); // c'est du event binding
+    // setTimeout(() => {
+    //   window.location.reload();
+    // });
   }
 
   onAddToPanier() {

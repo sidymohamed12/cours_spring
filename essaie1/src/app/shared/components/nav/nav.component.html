@@ -40,7 +40,7 @@
             @if (!authentificationService.isAuthenticated()) {
             <a routerLink="/security/login" [queryParams]="{link:'login'}">se connecter</a>
             }@else{
-            <a (click)="authentificationService.logout()" class="cursor-pointer">se deconnecter</a>
+            <a (click)="onLogout()" class="cursor-pointer">se deconnecter</a>
             }
 
         </div>

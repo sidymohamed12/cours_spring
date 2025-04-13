@@ -59,7 +59,7 @@ export class PanierService {
   }
 
   clearPanier(): void {
-    this.initialize();
+    this.panierFinal.set(this.initialize());
   }
 
   private initialize(): Panier {

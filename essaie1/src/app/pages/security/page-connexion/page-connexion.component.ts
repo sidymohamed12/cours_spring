@@ -10,6 +10,8 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthentificationMockService } from '../../../shared/service/implement/authentification-mock.service';
 import { LoginResponse } from '../../../shared/model/User';
+import { PanierService } from '../../../shared/service/implement/panier.service';
+import { CommandeService } from '../../../shared/service/implement/commande.service';
 
 @Component({
   imports: [ReactiveFormsModule, CommonModule],
@@ -38,7 +40,9 @@ export class PageConnexionComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly authentificationService: AuthentificationMockService
+    private readonly authentificationService: AuthentificationMockService,
+    private readonly panierService: PanierService,
+    private readonly commandeService: CommandeService
   ) {
     this.formLogin2 = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -67,6 +71,7 @@ export class PageConnexionComponent implements OnInit {
               let queryParams = params['link'];
               if (queryParams == 'panier') {
                 // ajout commande et rediriger
+                this.panierService.clearPanier();
               }
               this.router.navigateByUrl('/catalogue');
             });

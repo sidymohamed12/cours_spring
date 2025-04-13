@@ -14,7 +14,7 @@ import cours.spring.cours_spring.services.IClientService;
 import cours.spring.cours_spring.utils.mappers.ClientMapper;
 import cours.spring.cours_spring.web.controllers.IClientController;
 import cours.spring.cours_spring.web.dto.RestResponse;
-import cours.spring.cours_spring.web.dto.request.ClientAndCommandeCreateRequest;
+import cours.spring.cours_spring.web.dto.request.ClientSimpleCreateRequest;
 import cours.spring.cours_spring.web.dto.response.client.ClientSimpleResponse;
 import cours.spring.cours_spring.web.dto.response.client.ClientWithCommandeResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -51,7 +51,7 @@ public class ClientController implements IClientController {
         if (client == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        var response = clientMapper.ResponseClientWithCommande(client);
+        var response = clientMapper.toResponseClientWithCommande(client);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -62,7 +62,7 @@ public class ClientController implements IClientController {
         if (client == null) {
             return ResponseEntity.noContent().build();
         }
-        var response = clientMapper.ResponseClientWithCommande(client);
+        var response = clientMapper.toResponseClientWithCommande(client);
 
         return new ResponseEntity<>(
                 RestResponse.response(HttpStatus.OK, response, "ClientWithCommande"),
@@ -70,14 +70,14 @@ public class ClientController implements IClientController {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> create(ClientAndCommandeCreateRequest client,
+    public ResponseEntity<Map<String, Object>> create(ClientSimpleCreateRequest client,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             var errors = RestResponse.extractFieldErrors(bindingResult);
             return new ResponseEntity<>(RestResponse.response(HttpStatus.BAD_REQUEST,
                     errors, "Map<String, String>"), HttpStatus.BAD_REQUEST);
         } else {
-            var data = clientService.create(clientMapper.toEntity(client));
+            var data = clientService.create(clientMapper.toEntity1(client));
             var response = clientMapper.toSimpleResponse(data);
             return new ResponseEntity<>(RestResponse.response(HttpStatus.CREATED,
                     response, "ClientSimpleResponse"), HttpStatus.CREATED);

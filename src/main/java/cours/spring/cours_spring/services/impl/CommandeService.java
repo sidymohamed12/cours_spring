@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cours.spring.cours_spring.data.entities.Commande;
+import cours.spring.cours_spring.data.entities.Detail;
+import cours.spring.cours_spring.data.repository.IClientRepository;
 import cours.spring.cours_spring.data.repository.ICommandeRepository;
 import cours.spring.cours_spring.services.ICommandeService;
 import cours.spring.cours_spring.utils.exceptions.EntityNotFoundException;
@@ -19,9 +21,15 @@ import lombok.RequiredArgsConstructor;
 public class CommandeService implements ICommandeService {
 
     private final ICommandeRepository commandeRepository;
+    private final IClientRepository clientRepository;
 
     @Override
     public Commande create(Commande value) {
+        if (value.getDetails() != null) {
+            for (Detail detail : value.getDetails()) {
+                detail.setCommande(value);
+            }
+        }
         return commandeRepository.save(value);
     }
 
@@ -61,6 +69,15 @@ public class CommandeService implements ICommandeService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Commande> getCommandesByClientId(Integer clientId) {
+        var client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new EntityNotFoundException("l'id n'existe pas"));
+        if (client == null)
+            return null;
+        return commandeRepository.findByClientId(client);
     }
 
 }

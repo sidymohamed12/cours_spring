@@ -1,5 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogueService } from '../../../shared/service/implement/catalogue.service';
 import { ProduitDetail } from '../../../shared/model/Catalogue';
 import { PanierService } from '../../../shared/service/implement/panier.service';
@@ -18,6 +25,7 @@ export class PageDetailComponent implements OnInit {
   private readonly catalogueService: CatalogueService =
     inject(CatalogueService);
   private readonly panierService: PanierService = inject(PanierService);
+  private readonly router: Router = inject(Router);
 
   produitDetail!: ProduitDetail;
   errorMessage: string = '';
@@ -25,12 +33,22 @@ export class PageDetailComponent implements OnInit {
   quantity = 1;
   minValue = 1;
   maxValue = 50;
+
   // -------------------------------------------------------------
+  // ngOnInit(): void {
+  //   let id = this.route.snapshot.params['produit_id'];
+  //   this.catalogueService.getArticleById(id).subscribe((data) => {
+  //     this.produitDetail = data;
+  //     console.log(this.produitDetail);
+  //   });
+  // }
+
   ngOnInit(): void {
-    let id = this.route.snapshot.params['produit_id'];
-    this.catalogueService.getArticleById(id).subscribe((data) => {
-      this.produitDetail = data;
-      console.log(this.produitDetail);
+    this.route.params.subscribe((params) => {
+      const id = params['produit_id'];
+      this.catalogueService.getArticleById(id).subscribe((data) => {
+        this.produitDetail = data;
+      });
     });
   }
 
@@ -47,6 +65,7 @@ export class PageDetailComponent implements OnInit {
       category: this.produitDetail.category.name,
     };
     this.panierService.addProduit2(produitCatalogue);
+    this.router.navigateByUrl('/catalogue');
     console.log(this.panierService.panierFinal().produits);
   }
 

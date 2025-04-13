@@ -19,6 +19,8 @@ public class Detail {
     private Integer id;
     @Column(nullable = false)
     private Integer qteVendu;
+    @Column(nullable = false)
+    private Double prixVente;
     @ManyToOne
     private Commande commande;
     @ManyToOne

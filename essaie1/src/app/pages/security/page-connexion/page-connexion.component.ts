@@ -12,6 +12,7 @@ import { AuthentificationMockService } from '../../../shared/service/implement/a
 import { LoginResponse } from '../../../shared/model/User';
 import { PanierService } from '../../../shared/service/implement/panier.service';
 import { CommandeService } from '../../../shared/service/implement/commande.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   imports: [ReactiveFormsModule, CommonModule],
@@ -42,7 +43,8 @@ export class PageConnexionComponent implements OnInit {
     private readonly router: Router,
     private readonly authentificationService: AuthentificationMockService,
     private readonly panierService: PanierService,
-    private readonly commandeService: CommandeService
+    private readonly commandeService: CommandeService,
+    private readonly toastr: ToastrService
   ) {
     this.formLogin2 = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -74,7 +76,10 @@ export class PageConnexionComponent implements OnInit {
                 this.commandeService
                   .addCommande(this.panierService.panierFinal())
                   .subscribe(() => {
-                    alert('Commande ajoutée avec succès');
+                    this.toastr.success(
+                      'Commande ajoutée avec succès',
+                      'Ajout de commande'
+                    );
                     this.panierService.clearPanier();
                   });
                 this.router.navigateByUrl('/catalogue/commande');
@@ -85,7 +90,7 @@ export class PageConnexionComponent implements OnInit {
         } else {
           this.isError = true;
           this.errorMessage = response.message;
-          alert(this.errorMessage);
+          this.toastr.error(this.errorMessage, 'Erreur de connexion');
         }
       },
       error: (error) => {

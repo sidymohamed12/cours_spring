@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { PanierService } from '../../../../shared/service/implement/panier.service';
 import { ProduitCatalogue } from '../../../../shared/model/Catalogue';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-item',
@@ -15,7 +16,10 @@ export class ProductItemComponent {
 
   @Input({ required: true }) produit!: ProduitCatalogue;
 
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly toastr: ToastrService
+  ) {}
 
   async onLoadViewDetail(id: number) {
     this.router
@@ -37,7 +41,13 @@ export class ProductItemComponent {
   onAddToPanier() {
     this.produit.qteCom = 1;
     this.panierService.addProduit2(this.produit);
-    // console.log(this.panierService.panierFinal().produits);
+    this.toastr.success('Produit ajouter au panier avec succés');
+  }
+
+  showSuccess() {
+    this.toastr.error("Message d'erreur", 'Titre'); // Erreur
+    this.toastr.warning("Message d'avertissement", 'Titre'); // Warning
+    this.toastr.info("Message d'information", 'Titre'); // Info
   }
 }
 

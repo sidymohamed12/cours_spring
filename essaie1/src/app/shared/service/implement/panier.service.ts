@@ -50,8 +50,11 @@ export class PanierService {
         (produit) => produit.id === id
       );
       if (index >= 0) {
-        panier.total -=
-          panier.produits[index].prix * panier.produits[index].qteCom!;
+        let prix: number = panier.produits[index].promo
+          ? panier.produits[index].newPrix
+          : panier.produits[index].prix;
+
+        panier.total -= prix * panier.produits[index].qteCom!;
         panier.produits.splice(index, 1);
       }
       return panier;

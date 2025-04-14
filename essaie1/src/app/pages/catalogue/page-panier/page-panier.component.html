@@ -24,10 +24,10 @@
                                         <span class="font-semibold">{{item.libelle}}</span>
                                     </div>
                                 </td>
-                                <td class="py-4">{{item.promo?item.prix:item.newPrix}}</td>
+                                <td class="py-4">{{item.promo ? item.newPrix:item.prix}}</td>
                                 <td class="py-4">{{item.qteCom}}
                                 </td>
-                                <td class="py-4">{{(item.promo?item.prix:item.newPrix ?? 0) * (item.qteCom ?? 0)}}</td>
+                                <td class="py-4">{{(item.promo?item.newPrix:item.prix) * (item.qteCom!)}}</td>
                                 <td class="py-4 flex items-center justify-center">
                                     <button type="button" (click)="deleteItem(item.id)"
                                         class="text-red-600 mt-5 cursor-pointer flex items-center space-x-1">

@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import "flowbite";
+@import 'ngx-toastr/toastr';
+@import 'toastr.css';
 
 @theme {
   --color-primary: #1d4ed8;

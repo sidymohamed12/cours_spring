@@ -55,12 +55,21 @@
                             </div>
                         </div>
                         <div class="mt-2 mb-3 flex items-center justify-between">
+                            @if (produit.promo) {
+                            <p>
+                                <span class="text-3xl font-bold text-slate-900">{{produit.newPrix}}
+                                    <span class="text-xl">FCFA</span>
+                                </span>
+                                <span class="text-sm ml-1 text-red-700 line-through">{{produit.prix}}FCFA</span>
+                            </p>
+                            }@else {
                             <p>
                                 <span class="text-3xl font-bold text-slate-900">{{produit.prix}}
-                                    <span class="text-2xl">f</span>
+                                    <span class="text-2xl">FCFA</span>
                                 </span>
-                                <span class="text-sm ml-1 text-slate-900 line-through">{{produit.newPrix}}f</span>
                             </p>
+                            }
+
                             <div class="flex items-center justify-end">
                                 <ng-container *ngFor="let star of [].constructor(produit.note); let i = index">
                                     <svg width="16" height="15" viewBox="0 0 16 15" fill="none"

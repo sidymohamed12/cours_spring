@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PanierService } from '../../../shared/service/implement/panier.service';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-page-panier',
@@ -10,11 +11,15 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class PagePanierComponent {
   public readonly panierService: PanierService = inject(PanierService);
-  private readonly router: Router = inject(Router);
+  private readonly toastr: ToastrService = inject(ToastrService);
 
   public produitsPanier = this.panierService.panierFinal().produits;
 
   public deleteItem(idItem: number) {
     this.panierService.removeProduit(idItem);
+    this.toastr.success(
+      'Produit supprimé du panier avec succès',
+      'Suppression'
+    );
   }
 }

@@ -12,6 +12,7 @@ import { ProduitDetail } from '../../../shared/model/Catalogue';
 import { PanierService } from '../../../shared/service/implement/panier.service';
 import { NgFor } from '@angular/common';
 import { ProductItemComponent } from '../components/product-item/product-item.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-page-detail',
@@ -26,6 +27,7 @@ export class PageDetailComponent implements OnInit {
     inject(CatalogueService);
   private readonly panierService: PanierService = inject(PanierService);
   private readonly router: Router = inject(Router);
+  private readonly toastr: ToastrService = inject(ToastrService);
 
   produitDetail!: ProduitDetail;
   errorMessage: string = '';
@@ -55,7 +57,7 @@ export class PageDetailComponent implements OnInit {
   // Fonction d'ajout au panier
   onAddToPanier() {
     if (!this.isQuantityValid()) {
-      alert(this.errorMessage);
+      this.toastr.error(this.errorMessage, 'Erreur de quantité');
       return;
     }
 
@@ -65,8 +67,11 @@ export class PageDetailComponent implements OnInit {
       category: this.produitDetail.category.name,
     };
     this.panierService.addProduit2(produitCatalogue);
-    this.router.navigateByUrl('/catalogue');
-    console.log(this.panierService.panierFinal().produits);
+    this.toastr.success(
+      'Produit ajouté au panier avec succès',
+      'Ajout au panier'
+    );
+    this.router.navigateByUrl('/catalogue/panier');
   }
 
   // Validation de la quantité

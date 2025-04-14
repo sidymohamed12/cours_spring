@@ -21,14 +21,15 @@ export class CommandeService implements ICommandeService {
     private readonly authentifactionService: AuthentificationMockService
   ) {}
 
-  getCommandeClient(): Observable<ClientCommande[]> {
-    return this.http.get<ClientCommande[]>(
+  getCommandeClient(): Observable<ClientCommande> {
+    return this.http.get<ClientCommande>(
       `${this.apiUrl}/client/${this.authentifactionService.currentUser()
         ?.id!}/commandes`
     );
   }
 
   addCommande(panier: Panier): Observable<CommandeResponse> {
+    console.log('panier', JSON.stringify(this.convertPanierToCommande(panier)));
     return this.http.post<CommandeResponse>(
       this.apiUrl + '/commande',
       this.convertPanierToCommande(panier)
@@ -38,11 +39,11 @@ export class CommandeService implements ICommandeService {
   convertPanierToCommande(panier: Panier): CommandeRequest {
     return {
       date: new Date(),
-      client: this.authentifactionService.currentUser()?.id!,
+      clientId: this.authentifactionService.currentUser()?.id!,
       montant: panier.total,
       details: panier.produits.map((produit) => {
         return {
-          produitId: produit.id,
+          articleId: produit.id,
           qteVendu: produit.qteCom!,
           prixVente: produit.promo ? produit.newPrix : produit.prix,
         };

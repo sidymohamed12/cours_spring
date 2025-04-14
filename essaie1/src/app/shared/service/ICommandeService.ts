@@ -10,5 +10,5 @@ export interface ICommandeService {
   getAllCommande(): Observable<CommandeRequest[]>;
   addCommande(panier: Panier): Observable<CommandeResponse>;
   convertPanierToCommande(panier: Panier): CommandeRequest;
-  getCommandeClient(): Observable<ClientCommande[]>;
+  getCommandeClient(): Observable<ClientCommande>;
 }

@@ -71,7 +71,13 @@ export class PageConnexionComponent implements OnInit {
               let queryParams = params['link'];
               if (queryParams == 'panier') {
                 // ajout commande et rediriger
-                this.panierService.clearPanier();
+                this.commandeService
+                  .addCommande(this.panierService.panierFinal())
+                  .subscribe(() => {
+                    alert('Commande ajoutée avec succès');
+                    this.panierService.clearPanier();
+                  });
+                this.router.navigateByUrl('/catalogue/commande');
               }
               this.router.navigateByUrl('/catalogue');
             });
@@ -92,9 +98,13 @@ export class PageConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authentificationService.isAuthenticated()) {
-      // ajout commende
-      this.router.navigateByUrl('/catalogue');
-      // redirection vers la des commandes
+      this.commandeService
+        .addCommande(this.panierService.panierFinal())
+        .subscribe(() => {
+          alert('Commande ajoutée avec succès');
+          this.panierService.clearPanier();
+        });
+      this.router.navigateByUrl('/catalogue/commande');
     }
   }
 }

@@ -35,22 +35,22 @@ export class PageDetailComponent implements OnInit {
   maxValue = 50;
 
   // -------------------------------------------------------------
-  // ngOnInit(): void {
-  //   let id = this.route.snapshot.params['produit_id'];
-  //   this.catalogueService.getArticleById(id).subscribe((data) => {
-  //     this.produitDetail = data;
-  //     console.log(this.produitDetail);
-  //   });
-  // }
-
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const id = params['produit_id'];
-      this.catalogueService.getArticleById(id).subscribe((data) => {
-        this.produitDetail = data;
-      });
+    let id = this.route.snapshot.params['produit_id'];
+    this.catalogueService.getArticleById(id).subscribe((data) => {
+      this.produitDetail = data;
+      console.log(this.produitDetail);
     });
   }
+
+  // ngOnInit(): void {
+  //   this.route.params.subscribe((params) => {
+  //     const id = params['produit_id'];
+  //     this.catalogueService.getArticleById(id).subscribe((data) => {
+  //       this.produitDetail = data;
+  //     });
+  //   });
+  // }
 
   // Fonction d'ajout au panier
   onAddToPanier() {

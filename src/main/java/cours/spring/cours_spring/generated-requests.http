@@ -101,6 +101,7 @@ Content-Type: application/json
     ]
 }
 
+# panier {"date":"2025-04-13T23:27:47.640Z","client":1,"montant":2100,"details":[{"produitId":3,"qteVendu":1,"prixVente":1000},{"produitId":1,"qteVendu":1,"prixVente":1100}]}
 #################
 
 POST http://localhost:8080/client

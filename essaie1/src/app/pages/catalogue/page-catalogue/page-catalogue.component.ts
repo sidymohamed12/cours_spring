@@ -20,7 +20,7 @@ export class PageCatalogueComponent implements OnInit {
       .getProduitCatalogue()
       .subscribe((data: ProduitCatalogue[]) => {
         this.produits = data;
-        console.log(this.produits);
+        // console.log(this.produits);
       });
   }
 

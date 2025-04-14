@@ -37,11 +37,17 @@ export class NavComponent implements OnInit {
     ];
   }
 
-  onLogout() {
+  async onLogout() {
     this.authentificationService.logout();
     this.panierService.clearPanier();
     this.isClient = false;
-    this.router.navigateByUrl('/catalogue');
+    await this.router
+      .navigateByUrl('.', {
+        skipLocationChange: true,
+      })
+      .then(() => {
+        this.router.navigate(['/security/login']);
+      });
   }
 }
 

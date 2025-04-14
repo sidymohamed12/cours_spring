@@ -18,13 +18,17 @@ export class ClientComponent {
     private readonly commandeService: CommandeService
   ) {}
 
-  public clientCommandes: ClientCommande[] = [];
+  public clientCommandes!: CommandeResponse[];
 
   ngOnInit(): void {
-    this.commandeService
-      .getCommandeClient()
-      .subscribe((commandes: ClientCommande[]) => {
-        this.clientCommandes = commandes;
-      });
+    this.commandeService.getCommandeClient().subscribe(
+      (commande) => {
+        this.clientCommandes = commande.commandes;
+        console.log('Commandes récupérées avec succès', commande);
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des commandes', error);
+      }
+    );
   }
 }

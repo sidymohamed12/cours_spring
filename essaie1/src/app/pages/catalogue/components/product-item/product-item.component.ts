@@ -17,27 +17,27 @@ export class ProductItemComponent {
 
   constructor(private readonly router: Router) {}
 
-  // async onLoadViewDetail(id: number) {
-  //   this.router
-  //     .navigateByUrl('.', {
-  //       skipLocationChange: true,
-  //     })
-  //     .then(() => {
-  //       this.router.navigate([`/catalogue/detail/${id}`]);
-  //     });
-  // }
-
-  onLoadViewDetail(id: number) {
-    this.router.navigateByUrl(`catalogue/detail/${id}`); // c'est du event binding
-    // setTimeout(() => {
-    //   window.location.reload();
-    // });
+  async onLoadViewDetail(id: number) {
+    this.router
+      .navigateByUrl('.', {
+        skipLocationChange: true,
+      })
+      .then(() => {
+        this.router.navigate([`/catalogue/detail/${id}`]);
+      });
   }
+
+  // onLoadViewDetail(id: number) {
+  //   this.router.navigateByUrl(`catalogue/detail/${id}`); // c'est du event binding
+  //   // setTimeout(() => {
+  //   //   window.location.reload();
+  //   // });
+  // }
 
   onAddToPanier() {
     this.produit.qteCom = 1;
     this.panierService.addProduit2(this.produit);
-    console.log(this.panierService.panierFinal().produits);
+    // console.log(this.panierService.panierFinal().produits);
   }
 }
 

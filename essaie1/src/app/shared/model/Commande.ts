@@ -1,7 +1,7 @@
 export interface CommandeRequest {
   montant: number;
   date: Date;
-  client: number;
+  clientId: number;
   details: DetailsCommande[];
 }
 
@@ -9,12 +9,13 @@ export interface CommandeResponse {
   id: number;
   montant: number;
   date: Date;
+  client: string;
 }
 
 export interface DetailsCommande {
   qteVendu: number;
   prixVente: number;
-  produitId: number;
+  articleId: number;
 }
 
 export interface ClientCommande {

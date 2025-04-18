@@ -11,6 +11,10 @@ import { SecurityComponent } from './pages/security/security.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProduitComponent } from './pages/admin/produit/produit.component';
 import { ClientComponent } from './pages/catalogue/client/client.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { AboutComponent } from './shared/components/about/about.component';
+import { BlogComponent } from './shared/components/blog/blog.component';
+import { ContactComponent } from './shared/components/contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +41,10 @@ export const routes: Routes = [
     ],
   },
   { path: 'categorie', component: CategorieComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'contact', component: ContactComponent },
 
   { path: '', redirectTo: '/catalogue', pathMatch: 'full' },
   { path: '**', component: PageNofoundComponent },

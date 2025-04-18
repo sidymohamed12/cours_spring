@@ -1,4 +1,4 @@
-<nav class="bg-[#48930B] border-gray-200  flex">
+<nav class="bg-[#2c732f] border-gray-200 flex fixed w-full top-0 z-50">
     <div class="flex ml-6">
         <a routerLink="/catalogue" class="flex justify-start items-center space-x-3 rtl:space-x-reverse">
             <img src="logo.png" class="h-10 bg-white rounded-full" alt="Flowbite Logo" />
@@ -16,14 +16,12 @@
                             class="text-gray-900 dark:text-white hover:underline">{{link.name}}</a>
                     </li>
                     }
-
                     }
                 </ul>
             </div>
         </div>
     </div>
     <div class="flex justify-end">
-
         <a routerLink="panier" class="text-gray-200 flex mr-6 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -42,9 +40,6 @@
             }@else{
             <a (click)="onLogout()" class="cursor-pointer">se deconnecter</a>
             }
-
         </div>
-        <!-- ------- -->
-
     </div>
 </nav>

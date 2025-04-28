@@ -1,0 +1,6 @@
+<p #textContainer [class]="'blur-text ' + className" [style.display]="'flex'" [style.flexWrap]="'wrap'">
+    <span *ngFor="let element of elements; let i = index" #animatedSpans class="inline-block will-change-transform">
+        {{ element === ' ' ? ' ' : element }}
+        <ng-container *ngIf="animateBy === 'words' && i < elements.length - 1">&nbsp;</ng-container>
+    </span>
+</p>

@@ -1,32 +1,20 @@
 <div class="relative h-fit flex flex-col items-center justify-center ">
     <div class="container">
         <div
-            class="max-w-md w-full bg-white rounded-lg shadow-[0px_0px_12px_0px_rgba(32,181,38,0.32)] border border-[#2c732f] duration-300 hover:scale-103 p-6">
+            class="max-w-md w-full bg-white rounded-xl shadow-[0px_0px_12px_0px_rgba(32,181,38,0.32)] border border-[#2c732f] duration-300 hover:scale-103 p-6">
             <div class="flex flex-col ">
                 <div class="">
                     <div class="relative h-62 w-full mb-3">
-                        <div class="absolute flex flex-col top-0 right-0 p-3">
-                            <button
-                                class="transition ease-in duration-300  shadow hover:shadow-md text-red-500 border rounded-full w-8 h-8 text-center p-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="relative overflow-hidden"> <!-- Ajout de overflow-hidden ici -->
+                        <div class="relative overflow-hidden rounded-2xl">
                             <button class="cursor-pointer w-full" (click)=onLoadViewDetail(produit.id)>
                                 <img [src]="produit.photos[0].imagePath" [alt]="produit.libelle"
-                                    class="w-full h-62 object-cover rounded-2xl">
+                                    class="w-full h-62 object-cover">
                                 @if (produit.promo) {
                                 <span
-                                    class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-red-600 text-center text-sm text-white">Promo
-                                </span>
+                                    class="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-red-600 text-center text-sm text-white">Promo</span>
                                 }
                             </button>
                         </div>
-
                     </div>
                     <div class="flex-auto justify-evenly">
                         <div class="flex flex-wrap ">

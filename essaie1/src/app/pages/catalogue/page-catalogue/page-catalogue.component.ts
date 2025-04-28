@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CatalogueService } from '../../../shared/service/implement/catalogue.service';
 import { ProduitCatalogue } from '../../../shared/model/Catalogue';
 import { ProductItemComponent } from '../components/product-item/product-item.component';
+import { BlurTextComponent } from '../../../shared/components/blur-text/blur-text.component';
 
 @Component({
   selector: 'app-page-catalogue',
-  imports: [ProductItemComponent],
+  imports: [ProductItemComponent, BlurTextComponent],
   templateUrl: './page-catalogue.component.html',
   styleUrl: './page-catalogue.component.css',
 })

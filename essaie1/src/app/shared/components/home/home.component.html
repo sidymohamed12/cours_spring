@@ -1,1 +1,82 @@
 <app-nav />
+<!-- bannière -->
+<div class="relative h-[450px] rounded-2xl overflow-hidden shadow-lg">
+    <img src="img/agri.jpg" alt="Champs bio" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-[#00000095]"></div>
+
+    <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 md:px-12">
+        <div class="flex">
+            <app-blur-text [text]="name" [className]="'text-8xl md:text-8xl font-bold text-white'"
+                [animateBy]="'letters'" [delay]="70">
+            </app-blur-text>
+            <span class="text-8xl">🌿</span>
+        </div>
+
+
+        <app-blur-text [text]="'Des produits frais, bio et locaux, cultivés avec amour au Sénégal. 
+            Rejoignez le mouvement vers une agriculture saine et durable !'"
+            [className]="'mt-4 text-3xl text-center leading-normal font-medium md:text-2xl text-green-100 max-w-6xl'"
+            [delay]="20">
+        </app-blur-text>
+
+        <a routerLink="/catalogue"
+            class="mt-6 inline-block font-bold cursor-pointer px-6 py-3 bg-white text-green-800 text-lg rounded-xl shadow-md transition">
+            Commander maintenant
+        </a>
+    </div>
+</div>
+
+
+<!-- --------------------- A PROPOS DE BIO'TERANGA ---------------- -->
+<section class="bg-green-100 py-16 px-8">
+    <div class="container mx-auto text-center">
+        <!-- Titre -->
+        <h2 class="text-4xl my-5 text-center font-bold text-[#00b206] italic leading-none md:text-5xl">
+            À propos de Bio'Teranga
+        </h2>
+
+        <div class="h-1 w-20 bg-gradient-to-r bg-[#2c732f] mx-auto mb-8 rounded-full"></div>
+        <!-- Contenu -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Image -->
+            <div>
+                <img src="img/groupe-des-paysans-africains.jpg" alt="Présentation Bio'Teranga"
+                    class="rounded-lg shadow-lg w-full h-full object-cover object-center" />
+            </div>
+            <!-- Texte -->
+            <div class="text-left space-y-6 mb-4">
+                <p class="text-lg text-gray-700 leading-normal">
+                    <span class="font-bold text-green-600 ">Bio'Teranga</span>, c’est avant tout un projet agricole
+                    engagé pour la valorisation de l’agriculture biologique et durable au Sénégal. À
+                    travers nos champs implantés dans différentes régions du pays, nous cultivons avec soin une grande
+                    variété de produits
+                    naturels, dans le respect des écosystèmes et des savoir-faire locaux.
+                </p>
+                <p class="text-xl text-gray-700 leading-normal">
+                    Notre ambition est de rapprocher les consommateurs de la terre en leur proposant des récoltes
+                    fraîches, saines et
+                    accessibles, tout en soutenant activement les agriculteurs, qu’ils soient jeunes formés par notre
+                    initiative ou
+                    producteurs partenaires. Chez <span class="font-bold text-green-600 ">Bio'Teranga</span>, nous
+                    sommes convaincus que bien manger doit être un droit
+                    pour tous, et non
+                    un privilège.
+                </p>
+                <p class="text-xl font-bold text-green-700">
+                    Ensemble, construisons un avenir où la santé et l'environnement
+                    priment. <br>
+                    Votre santé et celle de notre planète sont au cœur de notre
+                    mission.
+                </p>
+                <p class="text-xl text-gray-700 leading-normal italic underline">
+                    Le goût du naturel, l'engagement pour demain !
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-news-letter />
+
+<!-- ---------------------------- FOOTER --------------------------- -->
+<app-footer />

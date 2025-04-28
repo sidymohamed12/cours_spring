@@ -20,12 +20,12 @@
         </div>
         <img class="w-[556px] h-[556px] ml-3 mr-6 object-cover" [src]="produitDetail.photos[0].imagePath" alt="" />
         <div class="ml-8">
-            <div class="flex gap-2 items-center">
+            <div class="flex gap-2 items-center justify-between">
                 <h1 class="text-[36px] leading-[44px] font-semibold text-black">
                     {{produitDetail.libelle}}
                 </h1>
                 <span
-                    class="text-sm text-[#2C742F] px-2 py-1 {{produitDetail.isdispo ? 'bg-[#20B526]' : 'bg-red-500'}} bg-opacity-20">{{produitDetail.isdispo ? 'INSTOCK' : 'OUT OF STOCK'}}</span>
+                    class="text-sm mt-3 text-white px-2 py-1 {{produitDetail.isdispo ? 'bg-[#20B526]' : 'bg-red-500'}} bg-opacity-20">{{produitDetail.isdispo ? 'INSTOCK' : 'OUT OF STOCK'}}</span>
             </div>
             <div class="flex items-center mt-3 text-sm leading-[1.5]">
                 <span class="flex gap-[2px]">
@@ -40,8 +40,9 @@
                 <span class="ml-1 mr-3">{{produitDetail.note}} Review . </span>
             </div>
             <div class="h-9 mt-5 justify-start items-center gap-3 inline-flex">
+                @if (produitDetail.promo) {
                 <div class="justify-start items-center gap-1 flex">
-                    <div class="text-[#b3b3b3] text-xl font-normal line-through leading-[30px]">
+                    <div class="text-red-400 text-xl font-normal line-through leading-[30px]">
                         {{produitDetail.prix}} Fcfa/kg
                     </div>
                     <div class="text-[#2c732f] text-2xl font-medium leading-9">
@@ -52,6 +53,12 @@
                     class="px-2.5 py-[3px] bg-[#e94b48]/10 rounded-[30px] text-[#e94b48] text-sm font-medium leading-[21px]">
                     64% Off
                 </div>
+                }@else {
+                <div class="text-[#2c732f] text-2xl font-medium leading-9">
+                    {{produitDetail.prix}} Fcfa/kg
+                </div>
+                }
+
             </div>
             <p class="w-[500px] text-justify text-[#7f7f7f] text-sm font-normal mt-4 leading-8">
                 {{produitDetail.description}}
@@ -98,7 +105,8 @@
                         <rect width="52" height="52" rx="26" fill="#20B526" fill-opacity="0.1"></rect>
                         <path
                             d="M25.9996 33.5451C9.33328 24.3334 20.9999 14.3334 25.9996 20.6567C30.9999 14.3334 42.6666 24.3334 25.9996 33.5451Z"
-                            stroke="#2C742F" stroke-width="1.5"></path>
+                            stroke="#2C742F" stroke-width="1.5">
+                        </path>
                     </svg>
                 </div>
             </div>
